@@ -1,0 +1,34 @@
+- niezgodność typów czyli łączenie w liście różnych typów
+- typy
+
+Podaj jaki będzie wynik następującego polecenia:
+-- map (^2) [1,2,7,5]
+odp) [1,4,49,25]
+
+-- map (>2) [1,2,7,5]
+odp) [False,False,True,True]
+
+-- filter (>2) [1,2,7,5]
+odp) [7,5]
+
+-- :t map
+odp) (a->b)->[a]->[b]
+
+-- :t filter 
+odp) (a->Bool)->[b]->[b]
+
+-- :t map(^2) [1,2,7,5]
+odp) Num b => [b]
+
+-- :t sin
+odp) Floating a => a -> a
+
+-- :t sin pi
+odp) Floating a => a
+
+-- foldr (*) 5 [1,2]
+odp) 10
+
+zamiana 2 elementu z ostatnim
+definicja typu, klasy, typu struktury drzewa gdzie wezly maja byc calkowite, znakowe
+wyrazenia lambda
