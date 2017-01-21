@@ -3,3 +3,6 @@ wiekszy(X,Y,Z):-
 	Z = X;
 	X<Y,
 	Z = Y.
+
+suma(X,Y,Z):-
+	Z is X+Y.

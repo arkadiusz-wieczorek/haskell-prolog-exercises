@@ -81,7 +81,6 @@ kuzyn(Ja,Osoba):-
 	ciotka(X,Ja),
 	rodzic(X,Osoba).
 
-
 % A → B → C → D
 % przodek, rekurencja
 przodek(A,B):-
@@ -91,6 +90,12 @@ przodek(A,D):-
 	rodzic(A,Ktos),
 	przodek(Ktos,D).
 
+potomek(Potomek, Przodek) :-
+	rodzic(Przodek, Potomek).
+
+potomek(Potomek, Przodek) :-
+	rodzic(X, Potomek),
+	potomek(X, Przodek).
 
 starszy(X,Y):-
 	wiek(X,Xwiek),
