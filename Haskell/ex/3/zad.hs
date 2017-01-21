@@ -12,7 +12,8 @@ wstaw2(n, l, e) = map (\id -> if id == n then e else l!!id) [0..n] ++ drop n l
 -- Zadanie 2.
 -- Napisać definicję funkcji usun(n,l), której wartością dla niepustej listy jest lista uzyskana
 -- przez usunięcie n-tego elementu z listy l.
-usun(n, list) = map(\id -> list!!id) [0..n-1] ++ [n+1..length(list)-1]
+-- usun(n, list) = map(\id -> list!!id) [0..n-1] ++ [n+1..length(list)-1]
+usun(n, list) = map(\id -> list!!id) [0..n-1] ++ map(\id -> list!!id) [n+1..length(list)-1]
 
 
 -- Zadanie 3.
@@ -42,3 +43,30 @@ check3(list, list2) =
 -- Napisać definicję funkcji liczbaw(e,l), której wartością jest liczba wystąpień elementu e na
 -- liście l.
 liczbaw(e, l) = foldl (+) 0 (map (\element -> if(e==element) then 1 else 0) l)
+
+
+
+-- Zadanie 5.
+-- Zdefiniować funkcji sprawdzającą równość dwóch list.
+-- (\l1 l2 -> foldl (&&) (length(l1) == length(l2)) (map(\n -> l1!!n == l2!!n) [0..length(l1)-1]) ) "abc" "abc"
+
+rownosc(list1, list2) = if(foldl (+) 0 (map (\element -> if(element `elem` list2) then 1 else 0) list1) == length(list2)) then True else False
+
+rownosc2([],[]) = True
+rownosc2([],_) = False
+rownosc2(list1, list2) =
+	if(head(list1) == head(list2))
+		then rownosc2(tail(list1), tail(list2))
+		else False
+
+-- Zadanie 6.
+-- Wykorzystać lambda wyrażenia do podniesienia do drugiej potęgi wszystkich elementów listy
+-- liczbowej.
+potega(list) = map (\element -> element^2) list
+
+
+-- Zadanie 7.
+-- Wykorzystać lambda wyrażenia do sprawdzenia podzielności liczby x przez y.
+-- (\x y -> any (\i -> i == y) [i | i <- [1 .. x], mod x i == 0] ) 20 4
+
+podzielnosc = \x -> \y -> mod x y == 0

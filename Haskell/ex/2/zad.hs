@@ -9,6 +9,7 @@ sqrlist(list) = map (\id -> ((list!!id) * (list!!id)) ) [0..length(list)-1]
 sqrlist2([x]) = [x*x]
 sqrlist2(g:o) = [g*g] ++ sqrlist2(o)
 
+sqrlist3(list) = map (\el -> el^2) list
 
 -- Zadanie 2.
 -- Zdefiniuj polimorficzną funkcję count obliczającą, ile razy dany obiekt występuje w danej
@@ -57,6 +58,7 @@ select (x, list) = 	if (x == head(list))
 						then tail(list)
 						else [head(list)] ++ select(x, tail(list))
 
+
 --  usuwanie wszystkich
 select2 (x, list) = filter (\el -> el /= x) list
 
@@ -85,6 +87,11 @@ prefix(list, list2) = if head(list) == head(list2)
 
 suma_n(0) = 0
 suma_n(n) = n + suma_n(n-1)
+
+
+
+
+
 
 -- Zadanie 9.
 -- Zaproponować wersję „akumulatorową” rozwiązania zadania 7.
