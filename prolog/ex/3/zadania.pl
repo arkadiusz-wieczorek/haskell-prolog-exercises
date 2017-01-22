@@ -60,7 +60,6 @@ suma_zb2( [ Glowa1 | Ogon1 ], Lista2, [ Glowa1 | OgonWynik ] ):-
 
 % -------------------------------------------
 
-roznica(X,[],X).
 roznica([],X,[]).
 
 roznica(Lista1, Lista2, ListaWynik):-
