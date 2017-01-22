@@ -78,6 +78,8 @@ dwa_wyst (element, list) = select(element, select(element, list))
 
 
 -- 15. Zdefiniuj polimorficzną funkcję delnth usuwającą element na n-tym miejscu w liście.
+deln n list = take (n-1) list ++ drop n list
+
 delnth (n, list) = (map (\id -> list!!id) [0..n-1]) ++ (map (\id -> list!!id) [n+1..(length(list)-1)])
 
 -- z obsluga bledow
@@ -105,7 +107,11 @@ suma_n2 (n) = foldl (+) 0 (map (\e -> e) [1..n])
 
 -- 18,19 ???
 -- Zaproponować wersję „akumulatorową” rozwiązania zadania 7.
--- Napisać wersję „akumulatorową” funkcji obliczającej potęgę a n (a≠0, n  N)
+
+-- 19. Napisać wersję „akumulatorową” funkcji obliczającej potęgę a n (a≠0, n  N)
+power a n = powerPOM a n 1
+powerPOM a n x = if n==0 then x
+                         else powerPOM a (n-1) (x*a)
 
 
 -- 20. Napisać definicję funkcji wstaw(n,l,e), której wartością jest nowa lista uzyskana przez
