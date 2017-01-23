@@ -48,13 +48,11 @@ polacz(L1,L2,L3):-
 
 % zasada idz do konca i od konca wrzucaj pokolei następne głowy
 dlugosc([], 0).
-dlugosc([X], 1).
 dlugosc([H|T], X):-
 	dlugosc(T, X1),
 	X is X1 + 1. %HERE
 
 suma([],0).
-suma([X],X).
 suma([H|T], Sum):-
 	suma(T, TempSum),
 	Sum is TempSum + H. %HERE
@@ -138,7 +136,7 @@ addMatrices( [Head|Tail], [Head2|Tail2], [HeadResult|TailResult]):-
 	addRow(Head, Head2, HeadResult),!,
 	addMatrices(Tail, Tail2, TailResult).
 % ----------------------------------
-% 
+%
 test([X|Y], 1, X).
 test([X|Y], ID, Element) :-
 	test(Y, TempID, Element),
