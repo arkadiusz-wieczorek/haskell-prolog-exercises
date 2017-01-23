@@ -1,3 +1,23 @@
+map :: (a -> b) -> [a] -> [b]
+map f [] = []
+map f (h:xs) = 	(f h) : (map f xs)
+
+filter f [] = []
+filter f (h:xs) =
+	if f h
+		then h : filter f xs
+		else filter f xs
+
+quicksort (x:xs) =
+	quicksort (filter (<x) xs) ++ [x] ++ quicksort (filter (>=x) xs)
+
+fib (n) =
+	if n == 0 then 1
+			  else if n == 1
+				  		then 1
+						else fib (n-1) + fib (n-2)
+-- --------------------------------
+
 -- 1. Silnia rekurencyjnie
 silnia(0) = 1
 silnia(n) = n * silnia (n-1)
